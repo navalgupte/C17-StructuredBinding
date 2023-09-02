@@ -27,8 +27,13 @@ struct employee {
 
 int main(int argc, char** argv) {
     // Unpacking Pair
-	auto [fraction, remainder] = divide(16, 3);
-    std::cout << "16/3 returns " << fraction << " with a remainder of " << remainder << ".\n\n";
+	auto [fraction, remainder_1] = divide(16, 3);
+    std::cout << "16/3 returns " << fraction << " with a remainder of " << remainder_1 << ".\n\n";
+
+    // Prior To C++17
+    int remainder_2;
+    std::tie(std::ignore, remainder_2) = divide(16, 3);
+    std::cout << "16/3 returns a remainder of " << remainder_2 << ".\n\n";
 
     // Unpacking Tuple
     const auto [name, time, price] = stock_info("abc");
